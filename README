@@ -1,0 +1,17 @@
+Assumptions made:
+1. All transaction amounts are > 0 and <= 1B and intermidiary/final available, held, and total amounts are >= -1B and <= 1B.
+2. Disputing a Withdrawal transaction is possible. The amount disputed in this case is negative the amount withdrawn.
+Although the following test case shows that you can end up with a negative balance, I didn't want to invent something on
+my own and simply followed the instructions.
+
+All transactions are of the same client
+id 1, deposit 10          			avail: 10    held: 0   total: 10
+id 2, deposit 100        			avail: 110   held: 0   total: 110
+id 3, withdraw 50        			avail: 60    held: 0   total: 60
+dispute id 3 (am_disp = -50)		avail: 110   held: -50 total: 60
+id 4, withdraw 110                  avail: 0     held: -50 total: -50
+
+option a) resolve id 3 (am_disp = -50)              avail: -50   held: 0   total: -50  (account not frozen)
+option b) chargeback id 3 (am_disp = -50)           avail: 0     held: 0   total: 0    (account frozen)
+
+Test name: 'test_dispute_withdrawal' in transaction_processor_tests
