@@ -13,4 +13,4 @@ id 4, withdraw 110              avail: 0     held: -50 total: -50
 option a) resolve id 3 (am_disp = -50)              avail: -50   held: 0   total: -50  (account not frozen)
 option b) chargeback id 3 (am_disp = -50)           avail: 0     held: 0   total: 0    (account frozen)
 
-Test name: 'test_dispute_withdrawal' in transaction_processor_tests
+Test name: 'test_dispute_withdrawal' in src/transaction_processor_tests
