@@ -1,8 +1,7 @@
 Assumptions made:
 1. All transaction amounts are > 0 and <= 1B and intermidiary/final available, held, and total amounts are >= -1B and <= 1B.
 2. Disputing a Withdrawal transaction is possible. The amount disputed in this case is negative the amount withdrawn.
-Although the following test case shows that you can end up with a negative balance, I didn't want to invent something on
-my own and simply followed the instructions.
+Although the following test case shows that you can end up with a negative balance, I didn't want to invent something on my own and simply followed the instructions.
 
 All transactions are of the same client
 id 1, deposit 10          			avail: 10    held: 0   total: 10
